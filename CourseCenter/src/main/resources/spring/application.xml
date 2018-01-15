@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:util="http://www.springframework.org/schema/util"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+          http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd
+">
+
+    
+    
+    <context:property-placeholder ignore-resource-not-found="true" system-properties-mode="OVERRIDE" location="${applicationConfigFile}"/>
+     
+    <bean id="appConfig" class="tr.kasim.cc.app.AppConfig" scope="singleton">
+        <property name="title" value="селман касим бурдайди"/>
+    </bean>
+    <bean id="application" class="tr.kasim.cc.app.Application" scope="singleton">
+        <property name="config" ref="appConfig"/>
+    </bean>
+    <bean id="mainService" class="tr.kasim.cc.remote.MainService" scope="singleton"></bean>
+    <bean id="userService" class="tr.kasim.cc.services.UserService" scope="singleton"></bean>
+    <bean id="courseService" class="tr.kasim.cc.services.CourseService" scope="singleton"></bean>
+    <bean id="instructorInfoService" class="tr.kasim.cc.services.InstructorInfoService" scope="singleton"></bean>
+    <bean id="educationStatusService" class="tr.kasim.cc.services.EducationStatusService" scope="singleton"></bean>
+    <bean id="courseRequestService" class="tr.kasim.cc.services.CourseRequestService" scope="singleton"></bean>
+    
+ 
+</beans>
